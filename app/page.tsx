@@ -4,6 +4,7 @@ import AddTask from "./components/AddTask"
 import TodoList from "./components/TodoList"
 import { useEffect, useState } from "react"
 import { ITask } from "../types/tasks"
+import ThemeToggle from "./components/ThemeToggle";
 
 export default function Home() {
   const [tasks, setTasks] = useState<ITask[]>([])
@@ -34,10 +35,13 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-base-200">
-      <main className="max-w-4xl mx-auto mt-4 bg-base-100 rounded-xl shadow p-6">
+    <div className="min-h-screen ">
+      <main className="max-w-4xl mx-auto mt-4 bg-white rounded-xl shadow p-6">
+        <div className="text-center my-5 flex items-center justify-between gap-4">
+          <h1 className="text-2xl text-black font-bold">TODO LIST APP</h1>
+          <ThemeToggle />
+        </div>
         <div className="text-center my-5 flex flex-col gap-4">
-          <h1 className="text-2xl font-bold">Todo List App</h1>
           <AddTask onAdd={handleAdd} />
         </div>
         <TodoList tasks={tasks} onDelete={handleDelete} onEdit={handleEdit} />

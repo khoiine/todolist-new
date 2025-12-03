@@ -41,9 +41,9 @@ export default function AddTask({ onAdd }: AddTaskProps) {
               onChange={e => setNewTaskValue(e.target.value)}
               type="text"
               placeholder="Nhập task"
-              className="input w-full"
+              className="input w-full bg-white text-black border-[#92b7ff]"
             />
-            <button type="submit" className="btn" disabled={submitting || !newTaskValue.trim()}>
+            <button type="submit" className="btn bg-red-500 border-none text-white rounded" disabled={submitting || !newTaskValue.trim()}>
               {submitting ? "Đang thêm..." : "Thêm"}
             </button>
           </div>
