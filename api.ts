@@ -2,7 +2,8 @@ import { todo } from "node:test";
 import { ITask } from "./types/tasks";
 import { cache } from "react";
 
-const baseUrl = 'http://localhost:3001';
+// const baseUrl = 'http://localhost:3001';
+const baseUrl = 'https://data-server-slk0.onrender.com';
 
 export const getAllTodos = async (): Promise<ITask[]> => {
     const res = await fetch(`${baseUrl}/tasks`, { cache: 'no-store' });
