@@ -34,7 +34,7 @@ const Task = ({ task, onDelete, onEdit }: TaskProps) => {
 
     const toggleCompleted = () => {
         const newCompleted = !localCompleted;
-        setLocalCompleted(newCompleted); // optimistic UI
+        setLocalCompleted(newCompleted);
         onEdit({
             id: task.id,
             text: task.text,
@@ -61,7 +61,6 @@ const Task = ({ task, onDelete, onEdit }: TaskProps) => {
                 </td>
 
                 <td className="flex gap-5">
-                    {/* Edit button */}
                     <button
                         type="button"
                         onClick={() => setOpenModalEdit(true)}
@@ -71,7 +70,6 @@ const Task = ({ task, onDelete, onEdit }: TaskProps) => {
                         <FiEdit cursor="pointer" className="text-blue-500" size={22} />
                     </button>
 
-                    {/* Edit Modal */}
                     <Modal modalOpen={openModalEdit} setModalOpen={setOpenModalEdit}>
                         <form onSubmit={handleSubmitEditTodo}>
                             <h3 className="font-bold text-lg">Sửa task</h3>
@@ -93,7 +91,6 @@ const Task = ({ task, onDelete, onEdit }: TaskProps) => {
                         </form>
                     </Modal>
 
-                    {/* Delete button */}
                     <button
                         type="button"
                         onClick={() => setOpenModalDeleted(true)}
@@ -103,7 +100,6 @@ const Task = ({ task, onDelete, onEdit }: TaskProps) => {
                         <FiTrash2 cursor="pointer" className="text-red-500" size={22} />
                     </button>
 
-                    {/* Delete Modal */}
                     <Modal modalOpen={openModalDeleted} setModalOpen={setOpenModalDeleted}>
                         <h3 className="text-lg">Bạn có muốn xóa không?</h3>
                         <div className="modal-action">

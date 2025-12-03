@@ -1,7 +1,6 @@
 import { ITask } from "./types/tasks";
 
-// export const baseUrl = 'https://data-server-slk0.onrender.com';
-export const baseUrl = 'http://localhost:3001';
+export const baseUrl = 'https://data-server-slk0.onrender.com';
 
 // GET tasks (optionally filter by userId)
 export const getAllTodos = async (userId?: string): Promise<ITask[]> => {
