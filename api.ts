@@ -2,7 +2,7 @@ import { ITask } from "./types/tasks";
 
 export const baseUrl = 'https://data-server-slk0.onrender.com';
 
-// GET tasks (optionally filter by userId)
+// GET 
 export const getAllTodos = async (userId?: string): Promise<ITask[]> => {
     const url = userId ? `${baseUrl}/tasks?userId=${encodeURIComponent(String(userId))}` : `${baseUrl}/tasks`;
     const res = await fetch(url, { cache: 'no-store' });
@@ -10,7 +10,7 @@ export const getAllTodos = async (userId?: string): Promise<ITask[]> => {
     return res.json();
 };
 
-// POST new task — attach userId if provided
+// POST 
 export const addTodo = async (todo: ITask, userId?: string): Promise<ITask> => {
     const body = { ...todo, ...(userId ? { userId } : {}) };
     const res = await fetch(`${baseUrl}/tasks`, {
@@ -22,7 +22,7 @@ export const addTodo = async (todo: ITask, userId?: string): Promise<ITask> => {
     return res.json();
 };
 
-// PUT and DELETE unchanged but keep same endpoints
+// PUT
 export const editTodo = async (todo: ITask): Promise<ITask> => {
     const res = await fetch(`${baseUrl}/tasks/${todo.id}`, {
         method: 'PUT',
@@ -33,12 +33,12 @@ export const editTodo = async (todo: ITask): Promise<ITask> => {
     return res.json();
 };
 
+// DELETE
 export const deleteTodo = async (id: string): Promise<void> => {
     const res = await fetch(`${baseUrl}/tasks/${id}`, { method: 'DELETE' });
     if (!res.ok) throw new Error(`Delete failed: ${res.status}`);
 };
 
-// --- auth helpers for json-server ---
 export interface IUser {
     id?: string | number;
     username: string;
